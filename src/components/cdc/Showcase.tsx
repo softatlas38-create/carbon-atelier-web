@@ -109,7 +109,7 @@ export function Showcase() {
         </div>
       </div>
 
-      {lightbox !== null ? (
+      {lightbox !== null && works[lightbox] ? (
         <div
           className="fixed inset-0 z-[70] flex items-center justify-center bg-carbon/95 p-4 backdrop-blur-xl sm:p-10"
           role="dialog"
@@ -126,12 +126,12 @@ export function Showcase() {
           </button>
           <figure className="max-h-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <img
-              src={works[lightbox].src}
-              alt={works[lightbox].alt}
+              src={works[lightbox]!.src}
+              alt={works[lightbox]!.alt}
               className="max-h-[80svh] w-full object-contain"
             />
             <figcaption className="mt-5 text-center text-[0.65rem] uppercase tracking-[0.26em] text-muted-foreground">
-              {works[lightbox].category} — {works[lightbox].alt}
+              {works[lightbox]!.category} — {works[lightbox]!.alt}
             </figcaption>
           </figure>
         </div>
