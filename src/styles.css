@@ -158,3 +158,95 @@
     color: var(--color-foreground);
   }
 }
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-carbon: var(--carbon);
+  --color-graphite: var(--graphite);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--carbon);
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--carbon);
+  }
+}
+
+@utility text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility rule-gold {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+@utility glass-panel {
+  background: var(--gradient-surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1s var(--ease-lux),
+    transform 1s var(--ease-lux);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cdc-scroll-hint {
+  0% {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+@utility scroll-hint {
+  animation: cdc-scroll-hint 2.4s var(--ease-lux) infinite;
+}
