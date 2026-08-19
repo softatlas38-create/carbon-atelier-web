@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/logo-cdc.jpg.asset.json";
 import { navLinks, site } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+const logo = logoAsset.url;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
