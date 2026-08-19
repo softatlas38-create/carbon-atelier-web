@@ -1,5 +1,7 @@
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/logo-cdc.jpg.asset.json";
 import { navLinks, site } from "@/config/site";
+
+const logo = logoAsset.url;
 
 export function Footer() {
   return (
